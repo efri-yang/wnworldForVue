@@ -4,7 +4,7 @@ import store from './store'
 import router from './router'
 
 
-
+//store和router尽量小写
 new Vue({
 	el:"#app",
 	store,

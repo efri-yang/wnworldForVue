@@ -2,20 +2,27 @@ import Vue from 'vue'
 import VueRouter from  'vue-router'
 
 
-import Home from './components/Home'
-import FrontEnd from './components/FrontEnd'
-import SuiYu from './components/SuiSuiYu'
+import HomePage from './views/home/Home'
+import ListPage from './views/classifylist/ClassifyList'
 
 
 
 Vue.use(VueRouter)
 
 const routes=[
-	{path: '/',redirect:{name:"home"}},
-	{path:"/home",component:Home,name:"home"},
-	{path:'/frontEnd',component:FrontEnd},
-	{path:'/suisuiyu',component:SuiYu}
+	{
+		path: '/',
+		component:HomePage
+	},
+	{
+		path:'/classify',
+		component:ListPage
+
+	}
+	
 ]
+
+
 
 const router=new VueRouter({
 	mode:'history',

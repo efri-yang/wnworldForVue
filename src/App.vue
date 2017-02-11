@@ -1,20 +1,27 @@
 <template>
-	<div class="main-box">
-		  <Navigation></Navigation>
-		  <transition name="fade">
-            <keep-alive>
-                <router-view target="_blank" class="child-view"></router-view >
-            </keep-alive>
-        </transition>
+	<div class="app" id="J_app">
+		  <transition
+			appear
+			:enter-active-class="animateIn"
+			:leave-active-class="animateOut"
+			:mode="animateMode"
+		  >
+		  		<router-view></router-view>
+		  </transition>
 	</div>
 </template>
 <script>
-	import Navigation from './components/Nav'
-
 	export default {
-
-		components:{
-			Navigation
+		computed:{
+			animateIn(){
+				return 'animated ' + this.$store.state.animateIn;
+			},
+			animateOut(){
+				return 'animated ' + this.$store.state.animateOut;
+			},
+			animateMode(){
+				return this.$store.state.animateOut;
+			}
 		}
 	}
 
