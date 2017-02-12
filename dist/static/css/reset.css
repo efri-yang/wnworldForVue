@@ -246,11 +246,3 @@ input[type="search"]::-webkit-search-decoration {
 .align-r {
   text-align: right;
 }
-.iconfont {
-    color: #999;
-    font-size: 28px;
-}
-body {
-    background: url("/static/images/header_scenery.jpg") no-repeat top center #e5e5e5;
-}
-
