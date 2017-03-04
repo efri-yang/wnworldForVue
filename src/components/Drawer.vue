@@ -1,14 +1,15 @@
 <template>
-	<div class="wn-drawer" ref="drawer">
+	<div class="wn-drawer" ref="drawer">vue
         <ul class="list">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">前端开发</a>
-                <ul class="sub-menu">
-                    <li><a href="#">Css</a></li>
-                    <li><a href="#">Javascript</a></li>
-                    <li><a href="#">工具</a></li>
+            <li><a href="/">首页</a></li>
+            <li v-for="item in dataList"><a href="#">{{item.name}}</a>
+                <ul class="sub-menu" v-show="item.child">
+                    <li v-for="child in item.child"><a href="#" v-html="child.name"></a></li>
+                   
                 </ul>
             </li>
+            <li><a href="/">关于散崖</a></li>
+            <li><a href="/">未分类</a></li>
         </ul>
     </div>
 </template>
@@ -30,17 +31,24 @@
 	    >.list{
 	    	padding-top: 30px;
 	    	>li{
-				height: px2rem(100px);
-			    line-height: px2rem(100px);
+				
 			    text-align: left;
-			    padding: 0 10px 0 20px;
+			    padding: 0 10px 0 30px;
 			    >ul{
 			    	padding-left: 40px;
+			    	a{
+			    		font-size:32px;
+			    		color: #fff;
+			    		height: px2rem(80px);
+			            line-height: px2rem(80px);
+			    	}
 			    }
 			    >a{
 			    	color: #fff;
 				    font-size: 36px;
 				    display: block;
+				    height: px2rem(100px);
+			        line-height: px2rem(100px);
 			    }
 	    	 }
 	    }
@@ -49,6 +57,16 @@
 </style>
 <script>
 	export default{
-		
+		data(){
+			return {
+				dataList:""
+			}
+		},
+		created(){
+			this.$http.get("../wnworldForVue/conn/getNav.php").then((response) =>{
+				console.dir(response.body);
+				this.dataList=response.body;
+			})
+		}
 	}
 </script>

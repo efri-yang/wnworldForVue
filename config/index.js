@@ -21,7 +21,15 @@ module.exports = {
     port: 2929,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/wnworldForVue':{
+            target: 'http://192.168.50.173:8000/AMyProject/AVue/wnworldForVue/',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/wnworldForVue': ''
+            }
+        },
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
