@@ -8,11 +8,11 @@
 </template>
 <style lang="scss">
 	.page-box{
-		-webkit-transition: -webkit-transform 250ms ease-out;
-    height: 100%;
+	-webkit-transition: -webkit-transform 250ms ease-out;
     top: 0;
     width: 100%;
     position: absolute;
+    background:#e5e5e5;
 		&.open{
 			transform: translate3d(-50%, 0px, 0px);
 			margin-left: 1px;

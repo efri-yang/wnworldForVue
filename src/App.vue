@@ -21,8 +21,10 @@
     		overflow: hidden;
     		min-height: 100%;
 	}*/
-	html {
+
+html {
         height: 100%;
+
 }
 body {
     height: 100%;
@@ -36,7 +38,7 @@ body {
     top:0;
     position: absolute;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    background: #fff;
+    /*background: #fff;*/
 }
 
 

@@ -2,16 +2,22 @@
 	/**
  * about 页面
  */
-
+@import 'static/scss/_functions.scss';
+.page-aboutme{
+    padding-bottom: 20px;
+}
 .wn-aboutme-box {
     background: #fff;
     border: 1px solid #cfcfcf;
     padding: 15px 20px 35px;
-    margin: 20px 10px 0;
+    margin: 20px 20px 10px;
+    font-size:32px; 
+    color:#333
 }
 
 .wn-aboutme-box .aboutme-tit {
-    font-size: 22px;
+    font-size: 36px;
+    font-weight: bold;
     padding-bottom: 8px;
     border-bottom: 1px dashed #f60;
     margin-bottom: 15px;
@@ -34,13 +40,13 @@
 }
 
 .aboutme-zj li p {
-    font-size: 16px;
-    line-height: 25px;
+    font-size: 32px;
+    line-height: 1.5;
     margin-bottom: 5px;
 }
 
 .aboutme-prolist {
-    font-size: 16px;
+    font-size: 32px;
 }
 
 .aboutme-prolist li {
@@ -54,7 +60,7 @@
 
 .aboutme-prolist li .item {
     position: relative;
-    padding-left: 60px;
+    padding-left: px2rem(110px);
     margin-bottom: 5px;
 }
 
@@ -69,7 +75,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 50px;
+    width:px2rem(100px);
     text-align: right;
 }
 
@@ -124,7 +130,6 @@
 }
 
 .aboutme-intro {
-    font-size: 16px;
     line-height: 1.8
 }
 
