@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
-            <p class="tit">关于散崖</p>
-            <a class="header-goback" href="javascript:history.go(-1)"><i class="iconfont icon-fanhui"></i></a>
+            <p class="tit">{{headTitle}}</p>
+            <a class="header-goback" href="#" @click="goBack"><i class="iconfont icon-fanhui"></i></a>
               
     </div>
 </template>
@@ -10,3 +10,20 @@
 	 * 这部分的样式和HeaderHome.vue 组件共用
 	 */
 </style>
+<script>
+	export default {
+		props:["headTitle"],
+		methods:{
+			goBack:function(event){
+				event.preventDefault();
+				this.$store.commit({
+					type : 'changeAnimate',
+					mode : 'reverse',
+
+				});
+				this.$router.go(-1);
+			}
+		}
+	}
+
+</script>

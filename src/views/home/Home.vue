@@ -2,14 +2,17 @@
 	<div :class="[isOpen ? 'page-box page-home open' : 'page-box page-home' ]">
 		<HeaderHome v-on:drawertoggle="drawerToggleClick"></HeaderHome>
 		<List></List>
-		<Drawer :toggleOpen="isOpen"></Drawer>
 		<div :class="[isOpen ? 'wn-drawer-mask open' :'wn-drawer-mask']" ref="drawerMask"></div>
+		<Drawer ref="drawer"></Drawer>
 	</div>
 </template>
 <style lang="scss">
 	.page-box{
 		-webkit-transition: -webkit-transform 250ms ease-out;
-		height: 100%;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    position: absolute;
 		&.open{
 			transform: translate3d(-50%, 0px, 0px);
 			margin-left: 1px;
@@ -31,30 +34,35 @@
 		    }
 		}
 	}
+	.page-home{
+		&.open{
+			.wn-drawer{
+				display: block;
+			}
+		}
+	}
 </style>
 <script>
 	import HeaderHome from '../../components/HeaderHome';
-	import List from '../../components/List'
+	import List from '../../components/List';
 	import Drawer from '../../components/Drawer';
-
+	import {mapState} from 'vuex';
 	export default {
-		data(){
-			return {
-				isOpen:false
-			}
-		},
+		computed:mapState({
+				isOpen:state=>state.drawerOpen
+		}),
 		mounted(){
 			var _this=this;
-			this.$refs.drawerMask.ontouchstart=function(event){
-				_this.isOpen=!_this.isOpen;
+			this.$refs.drawerMask.onclick=function(event){
+				_this.$store.state.drawerOpen=!_this.$store.state.drawerOpen
 				event.stopPropagation();
 				return false;
 			}
+
 		},
 		methods:{
 			drawerToggleClick:function(){
-				this.isOpen=!this.isOpen;
-
+				this.$store.state.drawerOpen=!this.$store.state.drawerOpen
 			}
 		},
 		components:{

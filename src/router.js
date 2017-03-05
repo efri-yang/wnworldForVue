@@ -4,7 +4,7 @@ import VueRouter from  'vue-router'
 
 import HomePage from './views/home/Home'
 import ListPage from './views/classifylist/ClassifyList'
-
+import AboutMe from './views/aboutme/AboutMe'
 
 
 Vue.use(VueRouter)
@@ -15,10 +15,14 @@ const routes=[
 		component:HomePage
 	},
 	{
-		path:'/classify',
+		path:'/category',
 		component:ListPage
-
+	},
+	{
+		path:'/aboutme',
+		component:AboutMe
 	}
+
 	
 ]
 

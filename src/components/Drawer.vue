@@ -1,5 +1,5 @@
 <template>
-	<div class="wn-drawer" ref="drawer">vue
+	<div :class="[isOpen ? 'wn-drawer open' : 'wn-drawer']" ref="drawer">
         <ul class="list">
             <li><a href="/">首页</a></li>
             <li v-for="item in dataList"><a href="#">{{item.name}}</a>
@@ -8,8 +8,7 @@
                    
                 </ul>
             </li>
-            <li><a href="/">关于散崖</a></li>
-            <li><a href="/">未分类</a></li>
+            <li><a href="/" @click="openAboutMe">关于散崖</a></li>
         </ul>
     </div>
 </template>
@@ -25,9 +24,7 @@
 	    z-index: 11;
 	    -webkit-transition: -webkit-transform 250ms ease-out;
 	    transform: translate3d(100%, 0px, 0px);
-	    &.show{
-	    	transform: translate3d(0px, 0px, 0px);
-	    }
+	    display: none;
 	    >.list{
 	    	padding-top: 30px;
 	    	>li{
@@ -62,11 +59,35 @@
 				dataList:""
 			}
 		},
+		computed:{
+			isOpen(){
+				return this.$store.state.drawerOpen
+			}
+		},
 		created(){
 			this.$http.get("../wnworldForVue/conn/getNav.php").then((response) =>{
 				console.dir(response.body);
 				this.dataList=response.body;
 			})
+		},
+		methods:{
+			openAboutMe:function(event){
+				var _this=this;
+				event.preventDefault();
+				this.$store.state.drawerOpen=!this.$store.state.drawerOpen;
+				this.$refs.drawer.style.display="none";
+					this.$store.commit({
+						type : 'changeAnimate',
+						mode : 'normal',
+
+					}),
+					this.$router.push({
+						path : '/aboutme'
+					})
+
+				
+				
+			}
 		}
 	}
 </script>
