@@ -142,7 +142,7 @@ a {
 
 a:hover {
   color: #e96363;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 fieldset,

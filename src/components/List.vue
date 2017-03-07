@@ -1,88 +1,25 @@
 <template>
     <div class="box-main">
         <ul class="log-list">
-            <li>
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">一次有意义的网站图片压缩之旅</a></h2>
+            <li v-for="item in listData">
+                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">{{item.post_title}}</a></h2>
                 <div class="entry-meta">
-                    <span><i class="iconfont icon-time"></i>2015-11-06</span>
+                    <span><i class="iconfont icon-time"></i>{{item.post_date}}</span>
                     <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
                     <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
-                    <span><i class="iconfont icon-icon-admin"></i> 散崖</span>
+                    <span><i class="iconfont icon-icon-admin"></i> {{item.meta_value}}</span>
                 </div>
                 <div class="desc">
-                    <p>web图片压缩方式，本文整理并对比了四种不同方式的图片压缩方式，不管是在pc还是在移动端，它可以让前端人员和设计师很好的完成相关的图片的压缩</p>
+                    <p v-html="item.post_excerpt"></p>
                 </div>
                 <a href="#" class="readmore">阅读全文</a>
             </li>
-            <li>
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">一次有意义的网站图片压缩之旅</a></h2>
-                <div class="entry-meta">
-                    <span><i class="iconfont icon-time"></i>2015-11-06</span>
-                    <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
-                    <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
-                    <span><i class="iconfont icon-icon-admin"></i> 散崖</span>
-                </div>
-                <div class="desc">
-                    <p>web图片压缩方式，本文整理并对比了四种不同方式的图片压缩方式，不管是在pc还是在移动端，它可以让前端人员和设计师很好的完成相关的图片的压缩</p>
-                </div>
-                <a href="#" class="readmore">阅读全文</a>
-            </li>
-            <li>
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">一次有意义的网站图片压缩之旅</a></h2>
-                <div class="entry-meta">
-                    <span><i class="iconfont icon-time"></i>2015-11-06</span>
-                    <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
-                    <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
-                    <span><i class="iconfont icon-icon-admin"></i> 散崖</span>
-                </div>
-                <div class="desc">
-                    <p>web图片压缩方式，本文整理并对比了四种不同方式的图片压缩方式，不管是在pc还是在移动端，它可以让前端人员和设计师很好的完成相关的图片的压缩</p>
-                </div>
-                <a href="#" class="readmore">阅读全文</a>
-            </li>
-            <li>
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">一次有意义的网站图片压缩之旅</a></h2>
-                <div class="entry-meta">
-                    <span><i class="iconfont icon-time"></i>2015-11-06</span>
-                    <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
-                    <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
-                    <span><i class="iconfont icon-icon-admin"></i> 散崖</span>
-                </div>
-                <div class="desc">
-                    <p>web图片压缩方式，本文整理并对比了四种不同方式的图片压缩方式，不管是在pc还是在移动端，它可以让前端人员和设计师很好的完成相关的图片的压缩</p>
-                </div>
-                <a href="#" class="readmore">阅读全文</a>
-            </li>
-            <li>
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">一次有意义的网站图片压缩之旅</a></h2>
-                <div class="entry-meta">
-                    <span><i class="iconfont icon-time"></i>2015-11-06</span>
-                    <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
-                    <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
-                    <span><i class="iconfont icon-icon-admin"></i> 散崖</span>
-                </div>
-                <div class="desc">
-                    <p>web图片压缩方式，本文整理并对比了四种不同方式的图片压缩方式，不管是在pc还是在移动端，它可以让前端人员和设计师很好的完成相关的图片的压缩</p>
-                </div>
-                <a href="#" class="readmore">阅读全文</a>
-            </li>
-            <li>
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">一次有意义的网站图片压缩之旅</a></h2>
-                <div class="entry-meta">
-                    <span><i class="iconfont icon-time"></i>2015-11-06</span>
-                    <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
-                    <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
-                    <span><i class="iconfont icon-icon-admin"></i> 散崖</span>
-                </div>
-                <div class="desc">
-                    <p>web图片压缩方式，本文整理并对比了四种不同方式的图片压缩方式，不管是在pc还是在移动端，它可以让前端人员和设计师很好的完成相关的图片的压缩</p>
-                </div>
-                <a href="#" class="readmore">阅读全文</a>
-            </li>
+            
         </ul>
     </div>
 </template>
 <style lang="scss">
+@import 'static/scss/_functions.scss';
 .box-main {
     margin: 30px 20px 0;
 }
@@ -95,6 +32,8 @@
     position: relative;
     .tit {
 	    font-size: 42px;
+        
+        word-break:break-all;
 	    font-weight: normal;
 	    i {
 		    color: #e96363;
@@ -171,3 +110,11 @@
 		}
 }
 </style>
+<script>
+    export default{
+        props: ['listData'],
+        data(){
+            return {}
+        }
+    }
+</script>

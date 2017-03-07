@@ -1,7 +1,7 @@
 <template>
 	<div :class="[isOpen ? 'page-box page-home open' : 'page-box page-home' ]">
 		<HeaderHome v-on:drawertoggle="drawerToggleClick"></HeaderHome>
-		<List></List>
+		<List :listData="dataList"></List>
 		<div :class="[isOpen ? 'wn-drawer-mask open' :'wn-drawer-mask']" ref="drawerMask"></div>
 		<Drawer ref="drawer"></Drawer>
 	</div>
@@ -48,6 +48,11 @@
 	import Drawer from '../../components/Drawer';
 	import {mapState} from 'vuex';
 	export default {
+		data(){
+			return {
+				dataList:""
+			}
+		},
 		computed:mapState({
 				isOpen:state=>state.drawerOpen
 		}),
@@ -59,6 +64,12 @@
 				return false;
 			}
 
+		},
+		created(){
+			this.$http.get("../wnworldForVue/conn/getCategory.php").then((response)=>{
+				console.dir(response.body);
+				this.dataList=response.body;
+			})
 		},
 		methods:{
 			drawerToggleClick:function(){
