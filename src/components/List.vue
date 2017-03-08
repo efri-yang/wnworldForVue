@@ -12,7 +12,7 @@
                 <div class="desc">
                     <p v-html="item.post_excerpt"></p>
                 </div>
-                <a href="#" class="readmore">阅读全文</a>
+                <a href="#" class="readmore" @click="openDetailPage(item.ID)">阅读全文</a>
             </li>
             
         </ul>
@@ -115,6 +115,22 @@
         props: ['listData'],
         data(){
             return {}
+        },
+        methods:{
+            openDetailPage:function(id){
+                event.preventDefault();
+                this.$store.commit({
+                    type : 'changeAnimate',
+                    mode : 'normal',
+                }),
+                this.$router.push({
+                    name:"detailpage",
+                    params:{
+                        id:id
+                    }
+
+                })
+            }
         }
     }
 </script>

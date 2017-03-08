@@ -5,6 +5,7 @@ import VueRouter from  'vue-router'
 import HomePage from './views/home/Home'
 import ListPage from './views/classifylist/ClassifyList'
 import AboutMe from './views/aboutme/AboutMe'
+import DetailPage from './components/DetailPage'
 
 
 Vue.use(VueRouter)
@@ -21,6 +22,11 @@ const routes=[
 	{
 		path:'/aboutme',
 		component:AboutMe
+	},
+	{
+		path:"/detailpage/:id",
+		name:"detailpage",
+		component:DetailPage
 	}
 
 	
@@ -29,13 +35,10 @@ const routes=[
 
 
 const router=new VueRouter({
-	mode:'history',
+	mode:'hash',
 	routes,
 	linkActiveClass: "active"
 })
 
-router.afterEach(function(route){
-	console.dir('router.afterEach')
-})
 
 module.exports = router;

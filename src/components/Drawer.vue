@@ -65,7 +65,7 @@
 			}
 		},
 		created(){
-			this.$http.get("../wnworldForVue/conn/getNav.php").then((response) =>{
+			this.$http.get("../../conn/getNav.php").then((response) =>{
 				console.dir(response.body);
 				this.dataList=response.body;
 			})
