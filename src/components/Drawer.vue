@@ -13,7 +13,7 @@
     </div>
 </template>
 <style lang="scss">
-	@import 'static/scss/_functions.scss';
+	@import '../assets/scss/_functions';
 	.wn-drawer {
 	    position: absolute;
 	    right: 0;
@@ -65,7 +65,7 @@
 			}
 		},
 		created(){
-			this.$http.get("../../conn/getNav.php").then((response) =>{
+			this.$http.get("/api/wnForVueGetNav.php").then((response) =>{
 				console.dir(response.body);
 				this.dataList=response.body;
 			})

@@ -2,7 +2,7 @@
 	/**
  * about 页面
  */
-@import 'static/scss/_functions.scss';
+@import '../../assets/scss/_functions.scss';
 .page-aboutme{
     padding-bottom: 20px;
 }

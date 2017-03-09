@@ -1,9 +1,0 @@
-[
-	{"term_id":"1","name":"\u672a\u5206\u7c7b","slug":"uncategorized","taxonomy":"category","parent":"0"},
-	{"term_id":"2","name":"\u524d\u7aef\u5f00\u53d1","slug":"frontend","taxonomy":"category","parent":"0",
-		"child":{"term_id":"16","name":"\u5de5\u5177","slug":"%e5%b7%a5%e5%85%b7","taxonomy":"category","parent":"2"}
-		},
-	{"term_id":"4","name":"\u90a3\u4e9b\u4e8b\u513f","slug":"suisuiyu","taxonomy":"category","parent":"0"},
-	{"term_id":"5","name":"\u8717\u725b\u90e8\u843d","slug":"wnbl","taxonomy":"category","parent":"0"},
-	{"term_id":"13","name":"\u540e\u7aef\u5b66\u4e60","slug":"houduan","taxonomy":"category","parent":"0","child":{"term_id":"3","name":"PHP&MySql","slug":"phpmysql","taxonomy":"category","parent":"13"}},
-	{"term_id":"17","name":"\u6211\u7684\u4f5c\u54c1","slug":"myproduct","taxonomy":"category","parent":"0"}]

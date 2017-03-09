@@ -9,7 +9,8 @@ const state={
 	animateIn:"slideInRight",
 	animateOut:"slideOutLeft",
 	animateMode:"",
-	drawerOpen:false
+	drawerOpen:false,
+	isLoading:false
 }
 
 const getters={
@@ -35,7 +36,7 @@ const mutations={
 }
 
 const actions={
-	
+	 
 }
 
 export default new Vuex.Store({

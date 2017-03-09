@@ -66,7 +66,7 @@
 
 		},
 		created(){
-			this.$http.get("../../conn/getCategory.php").then((response)=>{
+			this.$http.get("/api/wnForVueGetCategory.php").then((response)=>{
 				console.dir(response.body);
 				this.dataList=response.body;
 			})

@@ -2,10 +2,10 @@
     <div class="box-main">
         <ul class="log-list">
             <li v-for="item in listData">
-                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#">{{item.post_title}}</a></h2>
+                <h2 class="tit"><i class="iconfont icon-iconfonticon05"></i><a href="#" @click="openDetailPage(item.ID)">{{item.post_title}}</a></h2>
                 <div class="entry-meta">
                     <span><i class="iconfont icon-time"></i>{{item.post_date}}</span>
-                    <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span>
+                    <!-- <span><i class="iconfont icon-iconfont90"></i><a href="#">前端开发</a></span> -->
                     <!-- <span><i class="iconfont icon-xiebiaoqian"></i>次</span> -->
                     <span><i class="iconfont icon-icon-admin"></i> {{item.meta_value}}</span>
                 </div>
@@ -19,7 +19,7 @@
     </div>
 </template>
 <style lang="scss">
-@import 'static/scss/_functions.scss';
+@import '../assets/scss/_functions';
 .box-main {
     margin: 30px 20px 0;
 }
@@ -32,9 +32,11 @@
     position: relative;
     .tit {
 	    font-size: 42px;
-        
         word-break:break-all;
 	    font-weight: normal;
+	    a:visited{
+	    	color: #929292;
+	    }
 	    i {
 		    color: #e96363;
 		    font-size: 80px;
@@ -49,9 +51,6 @@
 		    color: #e96363;
 		    margin-right: 5px;
 		}
-		
-		
-		
 	}
 	.readmore {
 		    position: absolute;
@@ -113,8 +112,10 @@
 <script>
     export default{
         props: ['listData'],
-        data(){
-            return {}
+        watch:{
+        	'$route':function(){
+        		
+        	}
         },
         methods:{
             openDetailPage:function(id){

@@ -6,7 +6,7 @@
 
 </template>
 <style lang="scss">
-@import 'static/scss/_functions.scss';
+@import '../assets/scss/_functions';
 .header{
 		background: #222;
     	height:px2rem(90px);
@@ -15,7 +15,7 @@
     	.logo-m{
     		height:px2rem(90px);
 		    line-height: px2rem(90px);
-		    background: url("/static/images/logo_m.png") no-repeat;
+		    background: url("../assets/images/logo_m.png") no-repeat;
 		    background-size: auto 100%;
 		    text-indent: -9999px;
     	}

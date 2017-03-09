@@ -11,8 +11,12 @@ import DetailPage from './components/DetailPage'
 Vue.use(VueRouter)
 
 const routes=[
+	// {
+	// 	path: '/',redirect:{name:"home"},
+	// },
 	{
-		path: '/',
+		path:'/',
+		name:"home",
 		component:HomePage
 	},
 	{
@@ -35,10 +39,13 @@ const routes=[
 
 
 const router=new VueRouter({
-	mode:'hash',
+	mode:'history',
 	routes,
-	linkActiveClass: "active"
+	base:"/wnworldForVue/",
+	linkActiveClass: "active",
+	scrollBehavior (to, from, savedPosition) {
+	 
+	}
 })
-
 
 module.exports = router;

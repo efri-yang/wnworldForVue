@@ -1,5 +1,5 @@
 <style lang="scss">
-@import 'static/scss/_functions.scss';
+@import '../assets/scss/_functions';
 .content-container {
     border: 1px solid #cfcfcf;
     background: #fff;
@@ -235,7 +235,9 @@
 </template>
 <script>
 	import HeaderInside from './HeaderInside';
-	
+    import "../assets/lib/syntaxhighlighter3/styles/shCore.css";
+    import "../assets/lib/syntaxhighlighter3/styles/shCoreFadeToGrey.css";
+
 	export default {
 		data(){
 			return {
@@ -245,16 +247,12 @@
 		},
 		created(){
 			var _this=this;
-			this.$http.post("../../conn/getDetail.php",{id:_this.$route.params.id},{emulateJSON:true}).then(response=>{
+			this.$http.post("/api/wnForVueGetDetail.php",{id:_this.$route.params.id},{emulateJSON:true}).then(response=>{
 				console.dir(response.body)
 				this.articleData=response.body[0];
 			})
+            window.scroll(0,0)
 		},
-		watch:{
-	        '$route' (to,from) {
-	        	console.dir("xxx")
-	        }
-	    },
 		methods:{
 			
 		},

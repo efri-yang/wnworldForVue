@@ -8,7 +8,9 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource);
 
 
-import '../static/lib/flexible.js'
+import './assets/lib/flexible.js'
+
+
 //store和router尽量小写
 var vm=new Vue({
 	el:"#app",
