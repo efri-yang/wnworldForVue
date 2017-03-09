@@ -192,14 +192,17 @@ body {
 <template>
     <div class="app" id="J_app">
         <transition appear :enter-active-class="animateIn" :leave-active-class="animateOut" :mode="animateMode">
+        <keep-alive>
             <router-view></router-view>
+       </keep-alive>
         </transition>
-        <Loading v-show=""></Loading>
+        <Loading v-show="loadingStatu"></Loading>
     </div>  
 </template>
 
 <script>
 import Loading from './components/Loading.vue'
+import { mapGetters } from 'vuex'
 export default {
     computed: {
         animateIn() {
@@ -211,9 +214,10 @@ export default {
         animateMode() {
             return this.$store.state.animateMode;
         },
-        isLoad(){
-
-        }
+        ...mapGetters(["loadingStatu"])
+    },
+    created(){
+        this.$store.dispatch('toggleLoading',true)
     },
     components:{
         Loading

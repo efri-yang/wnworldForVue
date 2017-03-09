@@ -22,6 +22,7 @@
 
 				});
 				this.$router.go(-1);
+				this.$store.dispatch('toggleLoading',false)
 			}
 		}
 	}

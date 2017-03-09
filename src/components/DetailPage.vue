@@ -245,40 +245,79 @@
 				title:""
 			}
 		},
+        watch:{
+            '$route'(to,from){
+                console.group('detailpage:watch-route 创建前状态===============》');
+                console.dir('detailpage watch-$route to:'+to.path+", from:"+from.path);
+            }
+        },
+        methods:{
+            
+        },
+        beforeCreate(){
+            console.group('beforeCreate 创建前状态===============》');
+
+        },
 		created(){
+            console.group('created 创建完毕状态===============》');
 			var _this=this;
+            // this.$store.dispatch('toggleLoading',true)
 			this.$http.post("/api/wnForVueGetDetail.php",{id:_this.$route.params.id},{emulateJSON:true}).then(response=>{
-				console.dir(response.body)
+				// console.dir(response.body)
 				this.articleData=response.body[0];
+                // this.$store.dispatch('toggleLoading',false)
 			})
             window.scroll(0,0)
 		},
-		methods:{
-			
-		},
-		mounted(){
-			setTimeout(function(){
-				SyntaxHighlighter.highlight();
-			},500)
-			window._bd_share_config = {
-	            "common": {
-	                "bdSnsKey": {},
-	                "bdText": "",
-	                "bdMini": "2",
-	                "bdMiniList": [],
-	                "bdPic": "",
-	                "bdStyle": "0",
-	                "bdSize": "24"
-	            },
-	            "share": {},
-	            "image": {
-	                "viewList": ["weixin", "tsina", "qzone", "sqq", "ty"],
-	                "viewText": "分享到：",
-	                "viewSize": "16"
-	            }
-	        };
-	        document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5);
-		},
+        beforeMount(){
+            console.group('beforeMount 挂载前状态===============》');
+        },
+        mounted(){
+            console.group('mounted 挂载前状态===============》');
+            setTimeout(function(){
+                SyntaxHighlighter.highlight();
+            },500)
+            window._bd_share_config = {
+                "common": {
+                    "bdSnsKey": {},
+                    "bdText": "",
+                    "bdMini": "2",
+                    "bdMiniList": [],
+                    "bdPic": "",
+                    "bdStyle": "0",
+                    "bdSize": "24"
+                },
+                "share": {},
+                "image": {
+                    "viewList": ["weixin", "tsina", "qzone", "sqq", "ty"],
+                    "viewText": "分享到：",
+                    "viewSize": "16"
+                }
+            };
+            document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5);
+        },
+        beforeUpdate(){
+            console.group('beforeUpdate 更新前状态===============》');
+            console.log(this.$el);
+        },
+        updated(){
+            console.group('updated 更新完成状态===============》');
+            console.log(this.$el);
+        },
+        beforeDestroy: function () {
+            console.group('beforeDestroy 销毁前状态===============》');
+            console.log(this.$el);
+        },
+        destroyed: function () {
+            console.group('destroyed 销毁完成状态===============》');
+            console.log(this.$el);
+        },
+        activated:function(){
+            console.group('activated keep-alive切入到该组件状态(detailpage)===============》');
+        },
+        deactivated:function(){
+            console.group('deactivated keep-alive切出该组件状态(detailpage))===============》');
+        },
 		components: {
 			HeaderInside
 		}

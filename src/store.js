@@ -14,7 +14,9 @@ const state={
 }
 
 const getters={
-	
+	loadingStatu:function(state){
+		return state.isLoading;
+	}
 }
 
 const mutations={
@@ -32,11 +34,17 @@ const mutations={
 			state.animateOut = playload.animateOut
 			state.animateMode = playload.animateMode
 		}
+	},
+	changeLoading(state,flag){
+		state.isLoading=flag
 	}
+
 }
 
 const actions={
-	 
+	 toggleLoading({commit},flag){
+	 	commit("changeLoading",flag)
+	 }
 }
 
 export default new Vuex.Store({

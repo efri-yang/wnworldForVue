@@ -56,6 +56,26 @@
 		computed:mapState({
 				isOpen:state=>state.drawerOpen
 		}),
+		watch:{
+            '$route'(to,from){
+                console.group('homepage:watch-route 创建前状态===============》');
+                console.dir('homepage watch-$route to:'+to.path+", from:"+from.path);
+            }
+        },
+		methods:{
+			drawerToggleClick:function(){
+				this.$store.state.drawerOpen=!this.$store.state.drawerOpen
+			}
+		},
+		created(){
+			this.$store.dispatch('toggleLoading',true);
+			this.$http.get("/api/wnForVueGetCategory.php").then((response)=>{
+				console.dir(response.body);
+				this.dataList=response.body;
+				this.$store.dispatch('toggleLoading',false)
+			})
+		},
+		
 		mounted(){
 			var _this=this;
 			this.$refs.drawerMask.onclick=function(event){
@@ -63,19 +83,13 @@
 				event.stopPropagation();
 				return false;
 			}
-
 		},
-		created(){
-			this.$http.get("/api/wnForVueGetCategory.php").then((response)=>{
-				console.dir(response.body);
-				this.dataList=response.body;
-			})
-		},
-		methods:{
-			drawerToggleClick:function(){
-				this.$store.state.drawerOpen=!this.$store.state.drawerOpen
-			}
-		},
+		activated:function(){
+            console.group('activated keep-alive切入到该组件状态(home)===============》');
+        },
+        deactivated:function(){
+            console.group('deactivated keep-alive切出该组件状态(home))===============》');
+        },
 		components:{
 			HeaderHome,
 			Drawer,

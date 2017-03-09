@@ -288,12 +288,14 @@
 <script>
 import HeaderInside from '../../components/HeaderInside';
 export default {
-    data() {
+        data() {
             return {
                 headTitle: "关于散崖"
             }
         },
-
+        created(){
+            this.$store.dispatch('toggleLoading',false)
+        },
         components: {
             HeaderInside
         }
