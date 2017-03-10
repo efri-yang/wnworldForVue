@@ -69,7 +69,7 @@
 				isOpen:state=>state.drawerOpen
 		}),
 		watch:{
-            '$route'(to,from){
+            '$route' (to,from){
                 console.group('homepage:watch-route 创建前状态===============》');
                 console.dir('homepage watch-$route to:'+to.path+", from:"+from.path);
 

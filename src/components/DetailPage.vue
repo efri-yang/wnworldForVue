@@ -245,15 +245,7 @@
 			}
 		},
         
-        watch:{
-            '$route'(to,from){
-
-                this.articleData="";
-                if(to.name=="detailpage"){
-                   this.getData();
-                }  
-            }
-        },
+        
         methods:{
             getData(){
                 var _this=this;
@@ -270,7 +262,17 @@
             this.getData();
             window.scroll(0,0)
 		},
-
+        watch:{
+            '$route':function(to,from){
+               
+                alert("xxxwatch DetailPage.vue")//不执行 
+                this.articleData="";
+                if(to.name=="detailpage"){
+                   this.getData();
+                }  
+            
+            }
+        },
         activated(){
             //挂载玩以后，激活改组件的时候
             SyntaxHighlighter.highlight();

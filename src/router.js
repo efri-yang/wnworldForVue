@@ -14,9 +14,15 @@ const routes=[
 	
 	{
 		path:'/',
-		name:"home",
-		component:HomePage
+		redirect: { name: 'home' }
 	},
+	{
+		path:'/wnworldForVue',
+		name:"home",
+		component:HomePage,
+		
+	},
+	
 	{
 		path:'/category',
 		component:ListPage
@@ -39,7 +45,7 @@ const routes=[
 const router=new VueRouter({
 	mode:'history',
 	routes,
-	base:"/wnworldForVue/",
+	base: __dirname,
 	linkActiveClass: "active",
 	scrollBehavior (to, from, savedPosition) {
 	 
