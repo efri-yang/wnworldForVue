@@ -10,7 +10,7 @@
     background: #fff;
     border: 1px solid #cfcfcf;
     padding: 15px 20px 35px;
-    margin: 20px 20px 10px;
+    margin: px2rem(110px) 20px 10px;
     font-size:32px; 
     color:#333
 }

@@ -10,8 +10,10 @@
 .header{
 		background: #222;
     	height:px2rem(90px);
-    	position: relative;
+    	position:fixed;
     	padding: 0 10px;
+    	width:100%;
+    	z-index:10;
     	.logo-m{
     		height:px2rem(90px);
 		    line-height: px2rem(90px);

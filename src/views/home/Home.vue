@@ -1,16 +1,23 @@
 <template>
 	<div :class="[isOpen ? 'page-box page-home open' : 'page-box page-home' ]">
 		<HeaderHome v-on:drawertoggle="drawerToggleClick"></HeaderHome>
-		<List :listData="dataList"></List>
+		<div class="box-main">
+			<List :id="id" :pageNum="pageNum" :count="count"></List>
+		</div>
 		<div :class="[isOpen ? 'wn-drawer-mask open' :'wn-drawer-mask']" ref="drawerMask"></div>
 		<Drawer ref="drawer"></Drawer>
 	</div>
 </template>
 <style lang="scss">
+	.box-main{
+		
+
+	}
 	.page-box{
 	-webkit-transition: -webkit-transform 250ms ease-out;
     top: 0;
     width: 100%;
+    height:100%;
     position: absolute;
     background:#e5e5e5;
 		&.open{
@@ -43,6 +50,9 @@
 	}
 </style>
 <script>
+    /**
+     * 要给<list><list>传入 id(全部或者某个分类) defaultpage(第几页)  每次请求几页
+     */
 	import HeaderHome from '../../components/HeaderHome';
 	import List from '../../components/List';
 	import Drawer from '../../components/Drawer';
@@ -50,7 +60,9 @@
 	export default {
 		data(){
 			return {
-				dataList:""
+				id:"all",
+				pageNum:1,
+				count:5
 			}
 		},
 		computed:mapState({
@@ -60,6 +72,7 @@
             '$route'(to,from){
                 console.group('homepage:watch-route 创建前状态===============》');
                 console.dir('homepage watch-$route to:'+to.path+", from:"+from.path);
+
             }
         },
 		methods:{
@@ -67,17 +80,24 @@
 				this.$store.state.drawerOpen=!this.$store.state.drawerOpen
 			}
 		},
+		beforeCreate(){
+			console.dir("cccccc")
+		},
+		beforeMount(){
+            console.group('HOME beforeMount 挂载前状态===============》');
+        },
 		created(){
 			this.$store.dispatch('toggleLoading',true);
-			this.$http.get("/api/wnForVueGetCategory.php").then((response)=>{
-				console.dir(response.body);
-				this.dataList=response.body;
-				this.$store.dispatch('toggleLoading',false)
-			})
+			// this.$http.get("/api/wnForVueGetCategory.php").then((response)=>{
+			// 	console.dir(response.body);
+			// 	this.dataList=response.body;
+				
+			// })
 		},
 		
 		mounted(){
 			var _this=this;
+			console.group('HOME mounted 挂载前状态===============》');
 			this.$refs.drawerMask.onclick=function(event){
 				_this.$store.state.drawerOpen=!_this.$store.state.drawerOpen
 				event.stopPropagation();

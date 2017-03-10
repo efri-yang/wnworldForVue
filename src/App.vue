@@ -1,13 +1,6 @@
 <style lang="scss">
 @import '../static/css/reset.css';
 @import './assets/iconfont/iconfont.css';
-html {
-    height: 100%;
-}
-
-body {
-    height: 100%;
-}
 
 .app {
     -webkit-font-smoothing: antialiased;

@@ -74,8 +74,8 @@
 	    left: 50%;
 	    text-align: center;
 	    color: #fff;
-	    margin-top: -50px;
-	    margin-left: -60px;
+	    margin-top:px2rem(-140px/2);
+	    margin-left:px2rem(-220px/2);
 	    display: block;
 	    width:px2rem(220px);
 	    height:px2rem(140px);

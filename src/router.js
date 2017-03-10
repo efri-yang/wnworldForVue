@@ -11,9 +11,7 @@ import DetailPage from './components/DetailPage'
 Vue.use(VueRouter)
 
 const routes=[
-	// {
-	// 	path: '/',redirect:{name:"home"},
-	// },
+	
 	{
 		path:'/',
 		name:"home",
