@@ -176,12 +176,12 @@ export default {
                         "page": this.page,
                         "count": this.count
                     },{emulateJSON:true}).then(response => {
-                    	console.dir(this.items)
+                    	
                         for (var i = 0; i < response.body.length; i++) {
                             this.items.push(response.body[i])
                         }
             			this.page++;
-                        this.isFinshed=response.body.length <this.count ? true : false
+                        this.isFinshed=(response.body.length <this.count) ? true : false
                         this.$store.dispatch('toggleLoading',false);
                         setTimeout(() => {
 				            if (this.$refs.my_scroller){

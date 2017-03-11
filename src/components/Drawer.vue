@@ -75,7 +75,6 @@
 				var _this=this;
 				event.preventDefault();
 				this.$store.state.drawerOpen=!this.$store.state.drawerOpen;
-				this.$refs.drawer.style.display="none";
 					this.$store.commit({
 						type : 'changeAnimate',
 						mode : 'normal',

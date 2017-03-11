@@ -246,8 +246,7 @@
 		},
         
         watch:{
-            '$route'(to,from){
-
+            '$route' (to, from) {
                 this.articleData="";
                 if(to.name=="detailpage"){
                    this.getData();
@@ -278,26 +277,7 @@
         deactivated(){
 
         },
-        mounted(){
-            window._bd_share_config = {
-                "common": {
-                    "bdSnsKey": {},
-                    "bdText": "",
-                    "bdMini": "2",
-                    "bdMiniList": [],
-                    "bdPic": "",
-                    "bdStyle": "0",
-                    "bdSize": "24"
-                },
-                "share": {},
-                "image": {
-                    "viewList": ["weixin", "tsina", "qzone", "sqq", "ty"],
-                    "viewText": "分享到：",
-                    "viewSize": "16"
-                }
-            };
-            document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5);
-        },
+       
         updated(){
             SyntaxHighlighter.highlight();
         },
