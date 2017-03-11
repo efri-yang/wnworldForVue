@@ -185,9 +185,9 @@
 <template>
     <div class="app" id="J_app">
         <transition appear :enter-active-class="animateIn" :leave-active-class="animateOut" :mode="animateMode">
-        <keep-alive>
+       
             <router-view></router-view>
-       </keep-alive>
+       
         </transition>
         <Loading v-show="loadingStatu"></Loading>
     </div>  
@@ -217,3 +217,4 @@ export default {
     }
 }
 </script>
+  

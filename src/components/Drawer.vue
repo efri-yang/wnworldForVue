@@ -8,7 +8,8 @@
                    
                 </ul>
             </li>
-            <li><a href="/" @click="openAboutMe">关于散崖</a></li>
+            <!-- <li><a href="/" @click="openAboutMe">关于散崖</a></li> -->
+            <li><router-link to="/aboutme">关于散崖</router-link></li>
         </ul>
     </div>
 </template>
@@ -59,6 +60,7 @@
 				dataList:""
 			}
 		},
+		
 		computed:{
 			isOpen(){
 				return this.$store.state.drawerOpen
