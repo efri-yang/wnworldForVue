@@ -1,15 +1,14 @@
 <template>
 	<div :class="[isOpen ? 'wn-drawer open' : 'wn-drawer']" ref="drawer">
         <ul class="list">
-            <li><a href="/">首页</a></li>
-            <li v-for="item in dataList"><a href="#">{{item.name}}</a>
+           
+            <li v-for="item in dataList"><a href="#">{{item.post_title}}</a>
                 <ul class="sub-menu" v-show="item.child">
                     <li v-for="child in item.child"><a href="#" v-html="child.name"></a></li>
                    
                 </ul>
             </li>
-            <!-- <li><a href="/" @click="openAboutMe">关于散崖</a></li> -->
-            <li><router-link to="/aboutme">关于散崖</router-link></li>
+            
         </ul>
     </div>
 </template>
@@ -73,18 +72,17 @@
 			})
 		},
 		methods:{
-			openAboutMe:function(event){
-				var _this=this;
+			openDetail:function(path){
 				event.preventDefault();
 				this.$store.state.drawerOpen=!this.$store.state.drawerOpen;
-					this.$store.commit({
-						type : 'changeAnimate',
-						mode : 'normal',
+				this.$store.commit({
+					type : 'changeAnimate',
+					mode : 'normal',
 
-					}),
-					this.$router.push({
-						path : '/aboutme'
-					})
+				}),
+				this.$router.push({
+					path :path
+				})
 
 				
 				
