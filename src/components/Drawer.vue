@@ -1,14 +1,12 @@
 <template>
 	<div :class="[isOpen ? 'wn-drawer open' : 'wn-drawer']" ref="drawer">
         <ul class="list">
-           
-            <li v-for="item in dataList"><a href="#">{{item.post_title}}</a>
-                <ul class="sub-menu" v-show="item.child">
-                    <li v-for="child in item.child"><a href="#" v-html="child.name"></a></li>
-                   
+            <li v-for="item in dataList"><a href="#" @click="openDetail(item.ID,item.post_title)">{{item.post_title}}</a>
+                <ul class="sub-menu" v-show="item.child.length">
+                    <li v-for="child in item.child"><a href="#" @click="openDetail(child.ID,child.post_title)" v-html="child.name"></a></li>
                 </ul>
             </li>
-            
+            <li><a href="http://wnworld.com/UIPure/Demo/classify-basestyle.html">ZUI</a></li> 
         </ul>
     </div>
 </template>
@@ -38,6 +36,7 @@
 			    		color: #fff;
 			    		height: px2rem(80px);
 			            line-height: px2rem(80px);
+			            display: block;
 			    	}
 			    }
 			    >a{
@@ -72,17 +71,27 @@
 			})
 		},
 		methods:{
-			openDetail:function(path){
+			openDetail:function(id,title){
 				event.preventDefault();
 				this.$store.state.drawerOpen=!this.$store.state.drawerOpen;
 				this.$store.commit({
 					type : 'changeAnimate',
-					mode : 'normal',
-
-				}),
-				this.$router.push({
-					path :path
-				})
+					mode : 'normal'
+				});
+				if(title=="首页"){
+					this.$router.push({
+						path:"wnworldForVue"
+					});
+				}else{
+					this.$router.push({
+						name:"category",
+						params:{
+							id:id,
+							title:title
+						}
+					});
+				}
+				
 
 				
 				

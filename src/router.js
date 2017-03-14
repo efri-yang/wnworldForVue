@@ -24,7 +24,8 @@ const routes=[
 	},
 	
 	{
-		path:'/category',
+		path:'/category/:id',
+		name:"category",
 		component:ListPage
 	},
 	{
