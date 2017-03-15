@@ -1,9 +1,9 @@
 <template>
 	<div :class="[isOpen ? 'wn-drawer open' : 'wn-drawer']" ref="drawer">
         <ul class="list">
-            <li v-for="item in dataList"><a href="#" @click="openDetail(item.ID,item.post_title)">{{item.post_title}}</a>
+            <li v-for="item in dataList"><a href="#" @click="openDetail(item.meta_value,item.post_title)">{{item.post_title}}</a>
                 <ul class="sub-menu" v-show="item.child.length">
-                    <li v-for="child in item.child"><a href="#" @click="openDetail(child.ID,child.post_title)" v-html="child.name"></a></li>
+                    <li v-for="child in item.child"><a href="#" @click="openDetail(child.meta_value,child.post_title)" v-html="child.name"></a></li>
                 </ul>
             </li>
             <li><a href="http://wnworld.com/UIPure/Demo/classify-basestyle.html">ZUI</a></li> 
@@ -66,7 +66,6 @@
 		},
 		created(){
 			this.$http.get("/api/wnForVueGetNav.php").then((response) =>{
-				console.dir(response.body);
 				this.dataList=response.body;
 			})
 		},

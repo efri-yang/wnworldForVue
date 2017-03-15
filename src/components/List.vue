@@ -121,6 +121,7 @@
     </div>
 </template>
 <script>
+var a=0;
 import Scroller from '../components/Scroller/components/Scroller.vue'
 export default {
     	data() {
@@ -136,8 +137,8 @@ export default {
         props: ['id', "pageNum", "count"],
         watch: {
             '$route': function() {
-                console.dir("ListWatch")
-                this.scrollerResize();
+                console.group("ListWatch")
+                
             }
         },
         methods: {
@@ -162,6 +163,7 @@ export default {
                 })
             },
             infinite() {
+                console.group("执行了——infinite");
                 //箭头函数this问题;
                 if (this.isFinshed) {
                     setTimeout(() => {
@@ -171,12 +173,13 @@ export default {
                 }
 
                 setTimeout(() => {
+                    console.dir(++a);
                     this.$http.post("/api/wnForVueGetCategory.php", {
                         id: this.id,
-                        "page": this.page,
-                        "count": this.count
+                        page: this.page,
+                        count: this.count
                     },{emulateJSON:true}).then(response => {
-                    	
+                    	console.dir(response.body)
                         for (var i = 0; i < response.body.length; i++) {
                             this.items.push(response.body[i])
                         }
@@ -196,6 +199,9 @@ export default {
         }, 
         updated() {
             this.scrollerResize();
+        },
+        activated(){
+            // this.$emit("infinite");
         },
         mounted() {
             this.bottom = 20

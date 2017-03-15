@@ -23,7 +23,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/api':{
-            target: 'http://localhost/wnworldForVue/api/',
+            target: 'http://localhost/AVue/wnworldForVue/api/',
             changeOrigin: true,
             pathRewrite: {
               '^/api': ''
