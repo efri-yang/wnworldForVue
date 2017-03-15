@@ -25,7 +25,11 @@
 			}
 		},
 		methods:{
-
+			getData(){
+				this.$http.post("/api/wnForVueGetCategory.php",{id:this.id},{emulateJSON:true}).then(repsonse=>{
+					console.dir("xxx");
+				});
+			}
 		},
 		components:{
 			HeaderInside,
